@@ -1,0 +1,48 @@
+# Created by https://www.gitignore.io
+
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# GNU ELPA generated files
+/csharp-mode-autoloads.el
+/csharp-mode-pkg.el
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+
+### Elisp ###
+# Compiled
+*.elc
+
+# Packaging
+.tmp
