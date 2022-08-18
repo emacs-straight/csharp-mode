@@ -23,6 +23,24 @@
 (require 'csharp-mode)
 (require 'package)
 
+(defun csharp-mode-tests-setup ()
+  "Prepare `csharp-mode' for running tests via make."
+
+  ;; development only packages, not declared as a package-dependency
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/"))
+
+  ;; required to resolve SEQ (or anything on elpa) on Emacs25.
+  (setq package-check-signature nil)
+  (setq network-security-level 'low)  ; see https://github.com/jcs090218/setup-emacs-windows/issues/156#issuecomment-932956432
+
+  ;; assess depends on dash 2.12.1, which is no longer available
+  ;; installing dash, resolves 2.13.0, and fixes this broken dependency.
+  (dolist (p '(dash assess))
+    (when (not (package-installed-p p))
+      (package-refresh-contents)
+      (package-install p))))
+
 ;;; test-helper functions
 
 (defmacro assess-face-in-text= (testee &rest assessments)
